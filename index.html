@@ -272,6 +272,86 @@ select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='htt
   .cta-btn{text-align:center;justify-content:center}
 }
 
+/* ════ UX REFRESH ════ */
+/* hero: photo + compact */
+.hero-photo{position:absolute;inset:0;background:url('assets/home-exterior-1.webp') center 40%/cover;opacity:.2;filter:saturate(.8)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,31,61,.92) 0%,rgba(15,31,61,.6) 60%,rgba(15,31,61,.35) 100%);pointer-events:none}
+.hero-inner{z-index:3}
+.hero-wave{z-index:4}
+/* glossary collapsed */
+.glossary-d{background:var(--cyan-light);border:1px solid rgba(0,180,216,.3);border-radius:var(--r);margin-bottom:1.25rem}
+.glossary-d summary{list-style:none;display:flex;align-items:center;gap:10px;padding:.7rem 1rem;cursor:pointer;font-size:13px;font-weight:600;color:#0a6b82}
+.glossary-d summary::-webkit-details-marker{display:none}
+.glossary-d summary .g-icon{width:24px;height:24px;font-size:12px;margin:0}
+.glossary-d summary span:nth-child(2){flex:1}
+.glossary-d .g-chev{transition:transform .2s}
+.glossary-d[open] .g-chev{transform:rotate(180deg)}
+.glossary-d .g-terms{padding:0 1rem 1rem}
+/* inline term tips */
+.flabel-row{display:flex;align-items:center;gap:6px}
+.tip{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(0,180,216,.5);background:var(--cyan-light);color:#0a6b82;font:700 11px 'Inter',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:0}
+.tip:hover,.tip:focus-visible{background:var(--cyan);color:#fff}
+/* sub-steps */
+.sub{animation:fadeUp .3s ease both}
+.sub-count{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--cyan);margin-bottom:6px}
+.form-grid.one{grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:601px){.form-grid.one{grid-template-columns:1fr}}
+/* money input */
+.money-in{position:relative}
+.money-in span{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600;pointer-events:none}
+.money-in input{padding-left:28px}
+/* tap options replace dropdowns */
+.sr-select{position:absolute!important;opacity:0;pointer-events:none;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;border:0!important}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.opts.c3{grid-template-columns:repeat(3,1fr)}
+.opts.c5{grid-template-columns:repeat(5,1fr)}
+.opts.c1{grid-template-columns:1fr}
+.opt{font:500 14px 'Inter',sans-serif;color:var(--ink);background:var(--off);border:1.5px solid var(--border2);border-radius:12px;padding:12px 10px;min-height:48px;cursor:pointer;text-align:center;line-height:1.3;transition:background .15s,border-color .15s,transform .1s}
+.opt:hover{border-color:var(--cyan);background:#fff}
+.opt:active{transform:scale(.97)}
+.opt.sel{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600;box-shadow:0 4px 14px rgba(15,31,61,.2)}
+.opt:focus-visible,.check-item:focus-visible,.city-chip:focus-visible{outline:3px solid rgba(0,180,216,.55);outline-offset:2px}
+select.error + .opts .opt{border-color:var(--accent)}
+/* step name on mobile */
+.step-now{display:none;font-size:12.5px;font-weight:600;color:var(--navy);margin:-1rem 0 1rem}
+.step-now b{color:var(--cyan)}
+/* buttons */
+.float-btn{display:none!important}
+/* results */
+.total-hero-amt{font-family:'Inter',sans-serif;font-weight:700;letter-spacing:-.02em}
+.qual-badge strong{font-family:'Inter',sans-serif;font-weight:700}
+.badge-wrap{position:static;margin:-.25rem 0 .6rem}
+.badge-top{border-radius:100px}
+.prog-amt{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;white-space:normal;text-align:right;max-width:46%}
+.prog-card .prog-desc,.prog-card .prog-link{display:none}
+.prog-card.open .prog-desc,.prog-card.open .prog-link{display:block}
+.prog-more{background:none;border:none;color:var(--navy2);font:600 12.5px 'Inter',sans-serif;cursor:pointer;padding:4px 0;display:inline-flex;align-items:center;gap:4px}
+.prog-more svg{transition:transform .2s}
+.prog-card.open .prog-more svg{transform:rotate(180deg)}
+.prog-card.open .prog-link{margin-top:2px}
+/* confetti */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:1500;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;animation:conf 2.4s cubic-bezier(.2,.6,.4,1) forwards}
+@keyframes conf{to{transform:translate3d(var(--dx),105vh,0) rotate(var(--r));opacity:.9}}
+@media (prefers-reduced-motion:reduce){.confetti{display:none}}
+@media(max-width:600px){
+  .hero-inner{padding:1rem 1.1rem 3.4rem;gap:.9rem}
+  .hero h1{font-size:21px;margin-bottom:0}
+  .hero-sub{display:none}
+  .hero-badge{margin-bottom:.6rem;font-size:10px;padding:3px 10px}
+  .agent-card{padding:.6rem .8rem;gap:.7rem;border-radius:14px}
+  .agent-photo{width:44px;height:44px;border-width:2px;box-shadow:none}
+  .a-name{font-size:14px}
+  .a-title{margin-bottom:2px}
+  .a-links a{margin:0}
+  .a-links a + a{display:none}
+  .main{padding-top:1rem}
+  .step-now{display:block}
+  .btn-main{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;width:100%;box-shadow:0 10px 28px rgba(15,31,61,.35)}
+  .opts.c5{grid-template-columns:repeat(3,1fr)}
+  .opt{font-size:13.5px}
+}
+
 /* ── INTRO (welcome animation) ── */
 body.intro-open{overflow:hidden}
 #intro{position:fixed;inset:0;z-index:2000;background:var(--navy);color:#fff;display:flex;flex-direction:column;overflow:hidden;transition:opacity .5s ease,transform .5s ease}
@@ -397,10 +477,10 @@ body.intro-open{overflow:hidden}
 
 <!-- Hero -->
 <div class="hero">
+  <div class="hero-photo"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <img src="assets/real-logo.webp" alt="Real Brokerage" class="hero-logo">
       <div class="hero-badge"><svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg><span id="heroBadge">Utah Grant Finder 2026</span></div>
       <h1 id="heroTitle">Find every grant<br>you <span>actually qualify</span> for</h1>
       <p class="hero-sub" id="heroSub">Answer a few quick questions and get a personalized list of homebuyer assistance programs - matched to your situation in seconds.</p>
@@ -421,15 +501,6 @@ body.intro-open{overflow:hidden}
 </div>
 
 <div class="main">
-  <!-- Glossary -->
-  <div class="glossary">
-    <div class="g-icon">?</div>
-    <div style="flex:1">
-      <div class="g-title" id="glossaryTitle">New to homebuying? Tap any term to see what it means in plain English:</div>
-      <div class="g-terms" id="gTerms"></div>
-    </div>
-  </div>
-
   <!-- Steps -->
   <div class="steps">
     <div class="step active" id="s1"><div class="step-num">1</div><div class="step-label" id="stepLbl1">Your profile</div></div>
@@ -440,37 +511,26 @@ body.intro-open{overflow:hidden}
     <div class="step-line"></div>
     <div class="step" id="s4"><div class="step-num">4</div><div class="step-label" id="stepLbl4">Results</div></div>
   </div>
+  <div class="step-now" id="stepNow" aria-live="polite"></div>
 
-  <!-- STEP 1 -->
+  <!-- STEP 1 (three short screens) -->
   <div id="form-step1">
     <div class="card">
-      <div class="card-title" id="s1Title">Tell us about yourself</div>
-      <div class="card-sub" id="s1Sub">We use your answers to match you to the right programs. Nothing is stored or shared.</div>
-      <div class="form-grid">
+      <div class="sub" data-sub="1">
+        <div class="sub-count"><span id="subCount1">1 / 3</span></div>
+        <div class="card-title" id="s1Title">Tell us about yourself</div>
+        <div class="card-sub" id="s1Sub">We use your answers to match you to the right programs.</div>
+        <div class="form-grid one">
         <div class="field">
           <div class="flabel" id="lbl-age">Your age</div>
-          <input type="number" id="age" min="18" max="99" inputmode="numeric" enterkeyhint="next">
+          <input type="number" id="age" pattern="[0-9]*" min="18" max="99" inputmode="numeric" enterkeyhint="next">
           <div class="field-error" id="err-age">Please enter your age</div>
         </div>
         <div class="field">
-          <div class="flabel" id="lbl-income">Annual household income ($)</div>
-          <input type="number" id="income" inputmode="numeric" enterkeyhint="next">
+          <div class="flabel-row"><div class="flabel" id="lbl-income">Annual household income ($)</div><button type="button" class="tip" onclick="openTerm(5)" aria-label="?">?</button></div>
+          <div class="money-in"><span>$</span><input type="text" id="income" inputmode="numeric" enterkeyhint="next" autocomplete="off"></div>
           <div class="fhint" id="hint-income">Include all income from everyone on the loan</div>
           <div class="field-error" id="err-income">Please enter your household income</div>
-        </div>
-        <div class="field">
-          <div class="flabel" id="lbl-credit">Estimated credit score</div>
-          <select id="credit">
-            <option value="" id="opt-credit-0"></option>
-            <option value="560" id="opt-credit-1">Below 580</option>
-            <option value="580" id="opt-credit-2">580 – 619</option>
-            <option value="620" id="opt-credit-3">620 – 659</option>
-            <option value="660" id="opt-credit-4">660 – 679</option>
-            <option value="680" id="opt-credit-5">680 – 699</option>
-            <option value="700" id="opt-credit-6">700+</option>
-          </select>
-          <div class="fhint" id="hint-credit">Check Credit Karma free - won't hurt your score</div>
-          <div class="field-error" id="err-credit">Please select your credit score range</div>
         </div>
         <div class="field">
           <div class="flabel" id="lbl-household">Household size</div>
@@ -485,8 +545,29 @@ body.intro-open{overflow:hidden}
           <div class="fhint" id="hint-household">Everyone who will live in the home</div>
           <div class="field-error" id="err-household">Please select household size</div>
         </div>
+        </div>
+      </div>
+      <div class="sub" data-sub="2" style="display:none">
+        <div class="sub-count"><span id="subCount2">2 / 3</span></div>
+        <div class="card-title" id="s1bTitle">Your credit and home history</div>
+        <div class="card-sub" id="s1bSub">A rough estimate is fine. We never check your credit.</div>
+        <div class="form-grid one">
         <div class="field">
-          <div class="flabel" id="lbl-lastOwned">Last time you owned a home</div>
+          <div class="flabel-row"><div class="flabel" id="lbl-credit">Estimated credit score</div><button type="button" class="tip" onclick="openTerm(7)" aria-label="?">?</button></div>
+          <select id="credit">
+            <option value="" id="opt-credit-0"></option>
+            <option value="560" id="opt-credit-1">Below 580</option>
+            <option value="580" id="opt-credit-2">580 – 619</option>
+            <option value="620" id="opt-credit-3">620 – 659</option>
+            <option value="660" id="opt-credit-4">660 – 679</option>
+            <option value="680" id="opt-credit-5">680 – 699</option>
+            <option value="700" id="opt-credit-6">700+</option>
+          </select>
+          <div class="fhint" id="hint-credit">Check Credit Karma free - won't hurt your score</div>
+          <div class="field-error" id="err-credit">Please select your credit score range</div>
+        </div>
+        <div class="field">
+          <div class="flabel-row"><div class="flabel" id="lbl-lastOwned">Last time you owned a home</div><button type="button" class="tip" onclick="openTerm(6)" aria-label="?">?</button></div>
           <select id="lastOwned">
             <option value="" id="opt-lo-0"></option>
             <option value="never" id="opt-lo-1">Never owned a home</option>
@@ -506,9 +587,12 @@ body.intro-open{overflow:hidden}
           </select>
           <div class="field-error" id="err-utahResident">Please answer this question</div>
         </div>
+        </div>
       </div>
-      <div style="margin-top:1.75rem">
-        <div class="flabel" id="lbl-professions" style="display:block;margin-bottom:12px">Does any of this apply to you?</div>
+      <div class="sub" data-sub="3" style="display:none">
+        <div class="sub-count"><span id="subCount3">3 / 3</span></div>
+        <div class="card-title" id="lbl-professions">Does any of this apply to you?</div>
+        <div class="card-sub" id="s1cSub">Optional. Some jobs and situations unlock bigger grants.</div>
         <div class="check-group">
           <div class="check-item" data-target="isVet"><input type="checkbox" id="isVet"><div class="cbox"><svg class="cchk" viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="clabel" id="chk-vet-lbl">Active-duty military or veteran</div><div class="clabel-sub" id="chk-vet-sub">Must have been discharged within the last 5 years</div></div></div>
           <div class="check-item" data-target="isLaw"><input type="checkbox" id="isLaw"><div class="cbox"><svg class="cchk" viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="clabel" id="chk-law-lbl">Law enforcement or correctional officer</div><div class="clabel-sub" id="chk-law-sub">Qualifies for forgivable grant up to $25,000</div></div></div>
@@ -517,7 +601,8 @@ body.intro-open{overflow:hidden}
           <div class="check-item" data-target="isSingle"><input type="checkbox" id="isSingle"><div class="cbox"><svg class="cchk" viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="clabel" id="chk-single-lbl">Single parent or displaced homemaker</div><div class="clabel-sub" id="chk-single-sub">May qualify as first-time buyer even if owned before</div></div></div>
         </div>
       </div>
-      <button class="btn" id="btnStep1" onclick="goStep2()">Continue <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn btn-main" id="btnStep1" onclick="nextSub()">Continue <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn btn-ghost" id="backSub" onclick="prevSub()" style="display:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> <span id="backSubLbl">Back</span></button>
     </div>
   </div>
 
@@ -567,7 +652,7 @@ body.intro-open{overflow:hidden}
           <div class="fhint" id="hint-type">One $20K state program is new construction only</div>
         </div>
       </div>
-      <button class="btn" id="btnStep2" onclick="goStep3()">Continue <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn btn-main" id="btnStep2" onclick="goStep3()">Continue <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       <button class="btn btn-ghost" id="backBtn1" onclick="goStep1()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> <span id="backLbl1">Back</span></button>
     </div>
   </div>
@@ -606,10 +691,16 @@ body.intro-open{overflow:hidden}
         </div>
       </div>
       <p class="consent" id="consentTxt"></p>
-      <button class="btn" id="btnStep3" onclick="showResults()">Get my matched programs <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn btn-main" id="btnStep3" onclick="showResults()">Get my matched programs <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       <button class="btn btn-ghost" id="backBtn2" onclick="goStep2()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> <span id="backLbl2">Back</span></button>
     </div>
   </div>
+
+  <!-- Glossary (collapsed) -->
+  <details class="glossary-d" style="margin-top:1rem" id="glossaryD">
+    <summary><span class="g-icon">?</span><span id="glossaryTitle">New to homebuying? Tap any term to see what it means:</span><svg class="g-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+    <div class="g-terms" id="gTerms"></div>
+  </details>
 
   <!-- RESULTS -->
   <div id="results-section">
@@ -638,7 +729,7 @@ body.intro-open{overflow:hidden}
     <div id="results-list"></div>
     <div class="cta-card">
       <div class="cta-inner">
-        <img src="assets/cristian-millan.webp" alt="Cristian Millan" class="cta-photo" loading="lazy">
+        <img src="assets/cristian-millan-portrait.webp" alt="Cristian Millan" class="cta-photo" loading="lazy">
         <div style="flex:1;min-width:200px">
           <img src="assets/real-logo.webp" alt="Real" class="cta-logo" loading="lazy">
           <div class="cta-name">Cristian Millan</div>
@@ -665,6 +756,7 @@ const AGENT_EMAIL         = 'cristian.gmillan@gmail.com';
 
 document.addEventListener("DOMContentLoaded", function() {
   if (typeof emailjs !== "undefined") emailjs.init(EMAILJS_PUBLIC_KEY);
+  initUX();
   setLang(detectLang());
   startIntro();
 });
@@ -986,7 +1078,7 @@ function applyLang(lang) {
   var ph = document.getElementById('age');
   if (ph) ph.placeholder = lang==='en'?'e.g. 32':lang==='es'?'ej. 32':'ex. 32';
   var ph2 = document.getElementById('income');
-  if (ph2) ph2.placeholder = lang==='en'?'e.g. 75000':lang==='es'?'ej. 75000':'ex. 75000';
+  if (ph2) ph2.placeholder = lang==='en'?'e.g. 75,000':lang==='es'?'ej. 75,000':'ex. 75.000';
   var ph3 = document.getElementById('userName');
   if (ph3) ph3.placeholder = lang==='en'?'e.g. Maria Garcia':lang==='es'?'ej. María García':'ex. Maria Garcia';
   var ph4 = document.getElementById('userPhone');
@@ -1067,7 +1159,7 @@ function show(id) {
   document.getElementById('floatBtn').classList.remove('visible');
   // after step 1, bring the new step into view instead of jumping to the hero
   var stepsEl = document.querySelector('.steps');
-  var y = (id === 'form-step1' || !stepsEl) ? 0 : Math.max(0, stepsEl.getBoundingClientRect().top + window.pageYOffset - 64);
+  var y = !stepsEl ? 0 : Math.max(0, stepsEl.getBoundingClientRect().top + window.pageYOffset - 64);
   window.scrollTo({top:y, behavior:'smooth'});
 }
 
@@ -1683,7 +1775,7 @@ function renderResults(M) {
   var limitedFunding=['UHC New Construction','UHC Law Enforcement','West Valley City Grant','At Home in Layton','Clearfield City'];
   var topPicks=M.ranked.slice(0,2).map(function(p){ return p.t; });
 
-  document.getElementById('totalHeroAmt').textContent = M.maxVal>0 ? (fmtMoney(M.maxVal)+'+') : fmtMoney(0);
+  document.getElementById('totalHeroAmt').textContent = fmtMoney(M.maxVal);
   document.getElementById('totalHeroSub').textContent = matched.length>0 ? matched.length+' '+t('programsMatchedLbl') : '';
   document.getElementById('qual-num').textContent = matched.length;
   document.getElementById('programsMatchedLbl').textContent = t('programsMatchedLbl');
@@ -1717,6 +1809,7 @@ function renderResults(M) {
           +'<div class="prog-desc">'+locAmt(tp(p,'desc'))+'</div>'
           +urgency
           +'<a class="prog-link" href="'+p.url+'" target="_blank" rel="noopener">'+t('learnMore')+'</a>'
+          +'<button type="button" class="prog-more" aria-expanded="false"><span>'+t('details')+'</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>'
           +'</div>';
       del++;
     });
@@ -1734,6 +1827,8 @@ function showResults() {
   var M = computeMatch(); LASTM = M;
   setStep(4); setProgress(100); show('results-section');
   renderResults(M);
+  if (M.maxVal > 0) countUp(document.getElementById('totalHeroAmt'), M.maxVal, 1300, 200);
+  if (M.matched.length) confetti();
   track('lead_submit', {programs: M.matched.length, max_value: M.maxVal, phone_given: gv('userPhone').trim() ? 'yes' : 'no'});
   sendEmails({matched:M.matched, d:M.d, userName:gv('userName').trim(), userEmail:gv('userEmail').trim(), userPhone:gv('userPhone').trim(),
               income:M.income, credit:M.credit, isFirst:M.isFirst, isVet:M.isVet, isLaw:M.isLaw, isTeacher:M.isTeacher,
@@ -1863,6 +1958,180 @@ function detectLang() {
   try { var q = new URLSearchParams(location.search).get('lang'); if (q && T[q]) return q; } catch (e) {}
   var n = (navigator.language || 'en').slice(0, 2).toLowerCase();
   return T[n] ? n : 'en';
+}
+
+
+// ════════════════════════════════════════
+// UX REFRESH: tap options, sub-steps, a11y, results polish
+// ════════════════════════════════════════
+Object.assign(T.en,{stepOf:"Step {n} of 4", s1bTitle:"Your credit and home history", s1bSub:"A rough estimate is fine. We never check your credit.",
+  s1cSub:"Optional. Some jobs and situations unlock bigger grants.", backSubLbl:"Back", details:"Details", hideDetails:"Hide details",
+  totalHeroLabel:"largest program you may qualify for", s1Sub:"We only use your answers to match you with programs and help you."});
+Object.assign(T.es,{stepOf:"Paso {n} de 4", s1bTitle:"Tu crédito e historial de vivienda", s1bSub:"Un estimado está bien. Nunca revisamos tu crédito.",
+  s1cSub:"Opcional. Algunos trabajos y situaciones desbloquean grants más grandes.", backSubLbl:"Atrás", details:"Ver detalles", hideDetails:"Ocultar detalles",
+  totalHeroLabel:"el programa más grande para el que podrías calificar", s1Sub:"Solo usamos tus respuestas para encontrar tus programas y ayudarte."});
+Object.assign(T.pt,{stepOf:"Etapa {n} de 4", s1bTitle:"Seu crédito e histórico de moradia", s1bSub:"Uma estimativa já serve. Nunca consultamos seu crédito.",
+  s1cSub:"Opcional. Algumas profissões e situações liberam grants maiores.", backSubLbl:"Voltar", details:"Ver detalhes", hideDetails:"Ocultar detalhes",
+  totalHeroLabel:"o maior programa para o qual você pode se qualificar", s1Sub:"Usamos suas respostas apenas para encontrar seus programas e ajudar você."});
+
+// Income typed with commas; the rest of the code still reads plain digits
+var _gvRaw = gv;
+gv = function(id) { var v = _gvRaw(id); return id === 'income' ? String(v).replace(/\D/g, '') : v; };
+
+// Dropdowns become big tap buttons (the hidden select keeps the value)
+var OPT_SETUP = {credit:['','lbl-credit'], household:['c5','lbl-household'], lastOwned:['','lbl-lastOwned'],
+                 utahResident:['','lbl-utahRes'], homePrice:['','lbl-price'], homeType:['c1','lbl-type']};
+function enhanceSelect(id) {
+  var sel = document.getElementById(id); if (!sel || sel.dataset.enh) return;
+  sel.dataset.enh = '1'; sel.classList.add('sr-select'); sel.tabIndex = -1; sel.setAttribute('aria-hidden', 'true');
+  var box = document.createElement('div');
+  box.className = 'opts ' + OPT_SETUP[id][0]; box.id = 'opts-' + id;
+  box.setAttribute('role', 'radiogroup'); box.setAttribute('aria-labelledby', OPT_SETUP[id][1]);
+  Array.from(sel.options).forEach(function(o) {
+    if (o.value === '') return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'opt'; b.dataset.v = o.value; b.setAttribute('role', 'radio');
+    b.addEventListener('click', function() {
+      sel.value = o.value;
+      sel.dispatchEvent(new Event('change', {bubbles: true}));
+      sel.classList.remove('error');
+      var err = document.getElementById('err-' + id); if (err) err.classList.remove('show');
+      syncOpts(id);
+    });
+    box.appendChild(b);
+  });
+  sel.parentNode.insertBefore(box, sel.nextSibling);
+  syncOpts(id);
+}
+function syncOpts(id) {
+  var sel = document.getElementById(id), box = document.getElementById('opts-' + id); if (!box) return;
+  Array.from(box.children).forEach(function(b) {
+    var on = b.dataset.v === sel.value;
+    b.classList.toggle('sel', on); b.setAttribute('aria-checked', on ? 'true' : 'false');
+    var o = sel.querySelector('option[value="' + b.dataset.v + '"]'); if (o) b.textContent = o.textContent;
+  });
+}
+
+// Step 1 split into three short screens
+var SUB = 1, SUB_FIELDS = {1:['age','income','household'], 2:['credit','lastOwned','utahResident'], 3:[]};
+var CHECKS = {
+  age: function(){ return gv('age') && parseInt(gv('age')) >= 18; },
+  income: function(){ return gv('income') && parseInt(gv('income')) >= 0; },
+  credit: function(){ return gv('credit') !== ''; },
+  household: function(){ return gv('household') !== ''; },
+  lastOwned: function(){ return gv('lastOwned') !== ''; },
+  utahResident: function(){ return gv('utahResident') !== ''; }
+};
+function validateFields(ids) {
+  var valid = true, first = null;
+  ids.forEach(function(id) {
+    var el = document.getElementById(id), err = document.getElementById('err-' + id);
+    if (!CHECKS[id]()) { el.classList.add('error'); err.classList.add('show'); if (!first) first = el; valid = false; }
+    else { el.classList.remove('error'); err.classList.remove('show'); }
+  });
+  if (first) {
+    var box = document.getElementById('opts-' + first.id);
+    (box || first).scrollIntoView({block: 'center', behavior: 'smooth'});
+    if (box) box.querySelector('.opt').focus({preventScroll: true}); else first.focus({preventScroll: true});
+  }
+  return valid;
+}
+function scrollToSteps() {
+  var st = document.querySelector('.steps'); if (!st) return;
+  var y = Math.max(0, st.getBoundingClientRect().top + window.pageYOffset - 64);
+  if (window.pageYOffset > y + 4) window.scrollTo({top: y, behavior: 'smooth'});
+}
+function showSub(n) {
+  SUB = n;
+  document.querySelectorAll('#form-step1 .sub').forEach(function(el){ el.style.display = (+el.getAttribute('data-sub') === n) ? 'block' : 'none'; });
+  document.getElementById('backSub').style.display = n > 1 ? '' : 'none';
+  setProgress(10 + (n - 1) * 10);
+  scrollToSteps();
+}
+function nextSub() {
+  if (!validateFields(SUB_FIELDS[SUB])) return;
+  if (SUB < 3) { track('step1_part' + SUB); showSub(SUB + 1); } else goStep2();
+}
+function prevSub() { if (SUB > 1) showSub(SUB - 1); }
+goStep1 = function() { setStep(1); show('form-step1'); showSub(3); };
+restart = function() { setStep(1); show('form-step1'); showSub(1); };
+
+// "Step 2 of 4 · Location" line on phones
+function updateStepNow() {
+  var a = 1; [1,2,3,4].forEach(function(i){ if (document.getElementById('s' + i).classList.contains('active')) a = i; });
+  var el = document.getElementById('stepNow');
+  if (el) el.innerHTML = '<b>' + fill(t('stepOf'), {n: a}) + '</b> · ' + t('stepLbl' + a);
+}
+var _setStepBase = setStep;
+setStep = function(n) { _setStepBase(n); updateStepNow(); };
+
+// Glossary terms from the ? buttons
+function openTerm(i) {
+  var terms = T[LANG].terms || T.en.terms, item = terms[i]; if (!item) return;
+  document.getElementById('gtTitle').textContent = item[0];
+  var b = document.getElementById('gtBody'); b.textContent = item[1]; b.className = '';
+  document.getElementById('gtModal').classList.add('open');
+}
+
+// Keyboard and screen reader support for checkboxes and city chips
+function a11yInit() {
+  function keyClick(el) { el.addEventListener('keydown', function(e){ if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); el.click(); } }); }
+  document.querySelectorAll('.check-item[data-target]').forEach(function(it) {
+    it.setAttribute('role', 'checkbox'); it.tabIndex = 0; it.setAttribute('aria-checked', 'false');
+    it.addEventListener('click', function(){ it.setAttribute('aria-checked', it.classList.contains('checked') ? 'true' : 'false'); });
+    keyClick(it);
+  });
+  document.querySelectorAll('.city-chip').forEach(function(c) {
+    c.setAttribute('role', 'button'); c.tabIndex = 0; c.setAttribute('aria-pressed', 'false');
+    c.addEventListener('click', function(){ c.setAttribute('aria-pressed', c.classList.contains('selected') ? 'true' : 'false'); });
+    keyClick(c);
+  });
+}
+
+// Result cards: tap "Details" to expand
+document.addEventListener('click', function(e) {
+  var b = e.target.closest ? e.target.closest('.prog-more') : null; if (!b) return;
+  var card = b.closest('.prog-card'), open = !card.classList.contains('open');
+  card.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  b.querySelector('span').textContent = open ? t('hideDetails') : t('details');
+});
+
+function confetti() {
+  var c = document.createElement('div'); c.className = 'confetti';
+  var cols = ['#00b4d8','#0f1f3d','#f59e0b','#25d366','#7fe3f5','#1a3260'];
+  for (var i = 0; i < 44; i++) {
+    var p = document.createElement('i');
+    p.style.left = (Math.random() * 100) + '%'; p.style.background = cols[i % cols.length];
+    p.style.setProperty('--dx', (Math.random() * 160 - 80) + 'px');
+    p.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg');
+    p.style.animationDelay = (Math.random() * 0.5) + 's';
+    c.appendChild(p);
+  }
+  document.body.appendChild(c);
+  setTimeout(function(){ if (c.parentNode) c.parentNode.removeChild(c); }, 3400);
+}
+
+var _applyLangUX = applyLang;
+applyLang = function(lang) {
+  _applyLangUX(lang);
+  ['s1bTitle','s1bSub','s1cSub','backSubLbl','s1Sub'].forEach(function(id){ var el = document.getElementById(id); if (el) el.innerHTML = t(id); });
+  Object.keys(OPT_SETUP).forEach(syncOpts);
+  updateStepNow();
+};
+
+// Glossary sits under the form, hidden on the results page
+var _showBase = show;
+show = function(id) { _showBase(id); var g = document.getElementById('glossaryD'); if (g) g.style.display = id === 'results-section' ? 'none' : ''; };
+
+function initUX() {
+  Object.keys(OPT_SETUP).forEach(enhanceSelect);
+  var inc = document.getElementById('income');
+  inc.addEventListener('input', function() {
+    var d = inc.value.replace(/\D/g, '').slice(0, 7);
+    inc.value = d ? parseInt(d, 10).toLocaleString('en-US') : '';
+  });
+  a11yInit();
+  updateStepNow();
 }
 
 </script>
